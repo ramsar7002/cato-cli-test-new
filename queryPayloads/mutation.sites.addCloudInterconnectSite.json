@@ -1,0 +1,18 @@
+{
+    "operationName": "sitesAddCloudInterconnectSite",
+    "query": "mutation sitesAddCloudInterconnectSite ( $accountId:ID! $addCloudInterconnectSiteInput:AddCloudInterconnectSiteInput!) {\n\tsites ( accountId:$accountId ) {\n\t\taddCloudInterconnectSite ( input:$addCloudInterconnectSiteInput  )  {\n\t\t\tsiteId\n\t\t}\n\t}\t\n}",
+    "variables": {
+        "addCloudInterconnectSiteInput": {
+            "addSiteLocationInput": {
+                "address": "string",
+                "city": "string",
+                "countryCode": "string",
+                "stateCode": "string",
+                "timezone": "string"
+            },
+            "description": "string",
+            "name": "string",
+            "siteType": "BRANCH"
+        }
+    }
+}

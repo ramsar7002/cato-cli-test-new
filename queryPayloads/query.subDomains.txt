@@ -1,0 +1,13 @@
+query subDomains ( $accountID:ID! $managedAccount:Boolean) {
+	subDomains ( accountID:$accountID managedAccount:$managedAccount ) {
+		accountId
+		accountName
+		accountType
+subDomain {
+	accountId
+	accountName
+	accountType
+	subDomain
+}
+	}	
+}

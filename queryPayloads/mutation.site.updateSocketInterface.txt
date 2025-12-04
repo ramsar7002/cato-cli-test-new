@@ -1,0 +1,8 @@
+mutation siteUpdateSocketInterface ( $accountId:ID! $siteId:ID! $socketInterfaceId:SocketInterfaceIDEnum! $updateSocketInterfaceInput:UpdateSocketInterfaceInput!) {
+	site ( accountId:$accountId ) {
+		updateSocketInterface ( siteId:$siteId  socketInterfaceId:$socketInterfaceId  input:$updateSocketInterfaceInput  )  {
+			siteId
+			socketInterfaceId
+		}
+	}	
+}

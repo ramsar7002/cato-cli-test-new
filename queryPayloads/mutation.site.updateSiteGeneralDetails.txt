@@ -1,0 +1,7 @@
+mutation siteUpdateSiteGeneralDetails ( $accountId:ID! $siteId:ID! $updateSiteGeneralDetailsInput:UpdateSiteGeneralDetailsInput!) {
+	site ( accountId:$accountId ) {
+		updateSiteGeneralDetails ( siteId:$siteId  input:$updateSiteGeneralDetailsInput  )  {
+			siteId
+		}
+	}	
+}

@@ -1,0 +1,7 @@
+{
+    "operationName": "sitesRemoveNetworkRange",
+    "query": "mutation sitesRemoveNetworkRange ( $accountId:ID! $networkRangeId:ID!) {\n\tsites ( accountId:$accountId ) {\n\t\tremoveNetworkRange ( networkRangeId:$networkRangeId  )  {\n\t\t\tnetworkRangeId\n\t\t}\n\t}\t\n}",
+    "variables": {
+        "networkRangeId": "id"
+    }
+}

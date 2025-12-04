@@ -1,0 +1,7 @@
+mutation siteUpdateNetworkRange ( $accountId:ID! $networkRangeId:ID! $updateNetworkRangeInput:UpdateNetworkRangeInput!) {
+	site ( accountId:$accountId ) {
+		updateNetworkRange ( networkRangeId:$networkRangeId  input:$updateNetworkRangeInput  )  {
+			networkRangeId
+		}
+	}	
+}

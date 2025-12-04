@@ -1,0 +1,29 @@
+include catocli/*/README.md
+include catocli/parsers/*/README.md
+include catocli/parsers/custom/*/README.md
+recursive-include catocli/parsers *.md
+recursive-include catocli/parsers *.json
+include models/*.json
+include queryPayloads/*.json
+include queryPayloads/*.txt
+include vendor/*
+include catocli/clisettings.json
+recursive-include catocli/templates *
+include catocli/post_install.py
+include TAB_COMPLETION.md
+include PROFILES.md
+prune venv/
+prune test/
+prune .git/
+prune .vscode/
+prune __pycache__/
+prune */__pycache__/
+prune */*/__pycache__/
+prune tmp/
+prune *.egg-info/
+exclude .DS_Store
+exclude */.DS_Store
+exclude */*/.DS_Store
+exclude *.pyc
+exclude */*.pyc
+exclude */*/*.pyc

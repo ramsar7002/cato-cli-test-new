@@ -1,0 +1,191 @@
+mutation sitesRemoveIpsecIkeV2SiteTunnels ( $accountId:ID! $siteId:ID! $removeIpsecIkeV2SiteTunnelsInput:RemoveIpsecIkeV2SiteTunnelsInput!) {
+	sites ( accountId:$accountId ) {
+		removeIpsecIkeV2SiteTunnels ( siteId:$siteId  input:$removeIpsecIkeV2SiteTunnelsInput  )  {
+			siteId
+			primary {
+	fqdn {
+		createFromFile {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		updateFromFile {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		addValues {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		removeValues {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		createFromList {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		updateFromList {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+	}
+				tunnels {
+					tunnelId
+					localId
+				}
+			}
+			secondary {
+	fqdn {
+		createFromFile {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		updateFromFile {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		addValues {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		removeValues {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		createFromList {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+		updateFromList {
+			container {
+				id
+				name
+				description
+				size
+				audit {
+					createdAt
+					createdBy
+					lastModifiedBy
+					lastModifiedAt
+				}
+			}
+		}
+	}
+				tunnels {
+					tunnelId
+					localId
+				}
+			}
+		}
+	}	
+}

@@ -1,0 +1,69 @@
+query sandbox ( $accountId:ID! $sandboxReportsInput:SandboxReportsInput!) {
+	sandbox ( accountId:$accountId ) {
+		reports ( input:$sandboxReportsInput  )  {
+			report {
+				fileName
+	fileHash {
+		enabled
+		rules {
+			properties
+			audit {
+				updatedTime
+				updatedBy
+			}
+			rule {
+				id
+				name
+				description
+				index
+				enabled
+				fileName
+				expirationDate
+				action
+				sha256
+				section {
+					id
+					name
+				}
+			}
+		}
+		sections {
+			properties
+			audit {
+				updatedTime
+				updatedBy
+			}
+			section {
+				id
+				name
+			}
+		}
+		audit {
+			publishedTime
+			publishedBy
+		}
+		revision {
+			id
+			name
+			description
+			changes
+			createdTime
+			updatedTime
+		}
+	}
+				creationDate
+				expirationDate
+				verdict
+	status {
+		rawStatus
+		status
+	}
+				downloadUrl
+				failureReason
+			}
+			pageInfo {
+				total
+			}
+		}
+	}	
+}
