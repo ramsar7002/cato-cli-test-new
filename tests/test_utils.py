@@ -9,6 +9,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
@@ -482,11 +483,43 @@ def run_test(test_file: Path, verbose: bool = False, test_label: str = "Test", e
     return result
 
 
+def load_query_payload(operation: str) -> Optional[Dict]:
+    """
+    Load GraphQL query payload from queryPayloads directory.
+    Returns dict with 'query', 'operationName', 'variables' or None if not found.
+    """
+    query_payloads_dir = PROJECT_ROOT / "queryPayloads"
+    payload_file = query_payloads_dir / f"{operation}.json"
+    
+    if not payload_file.exists():
+        return None
+    
+    try:
+        with open(payload_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
 def run_test_from_config(test_key: str, test_config: Dict, verbose: bool = False, test_label: str = "Test", enable_trace_id: bool = False) -> Dict[str, Any]:
     """
     Run a single test from config dict and return results.
     test_label is used to distinguish between generated/custom tests in output.
     """
+    start_time = int(time.time() * 1000)  # milliseconds
+    events = []
+    
+    def add_event(level: str, event: str, event_type: str = None):
+        """Helper to add events with timestamps"""
+        event_data = {
+            'startTime': int(time.time() * 1000),
+            'level': level,
+            'event': event
+        }
+        if event_type:
+            event_data['type'] = event_type
+        events.append(event_data)
+    
     name = test_config.get('name', test_key)
     description = test_config.get('description', '')
     timeout = test_config.get('timeout', 30)
@@ -495,38 +528,79 @@ def run_test_from_config(test_key: str, test_config: Dict, verbose: bool = False
     
     # Validate required fields
     if not operation:
+        end_time = int(time.time() * 1000)
         return {
             'name': name,
             'description': description,
             'status': 'error',
-            'error': 'Missing "operation" field in test config'
+            'error': 'Missing "operation" field in test config',
+            'operation': '',
+            'payload': {},
+            'startTime': start_time,
+            'endTime': end_time,
+            'events': events
         }
     
     if payload is None or 'payload' not in test_config:
+        end_time = int(time.time() * 1000)
         return {
             'name': name,
             'description': description,
             'status': 'error',
-            'error': 'Missing "payload" field in test config'
+            'error': 'Missing "payload" field in test config',
+            'operation': operation,
+            'payload': {},
+            'startTime': start_time,
+            'endTime': end_time,
+            'events': events
         }
     
     print(f"\n{Colors.BOLD}Running {test_label}: {name}{Colors.NC}")
+    add_event('INFO', f"Starting test: {name}")
+    
     if description and verbose:
         print(f"{Colors.CYAN}Description: {description}{Colors.NC}")
+        add_event('INFO', f"Description: {description}")
     if verbose:
         print(f"{Colors.CYAN}Test key: {test_key}{Colors.NC}")
         print(f"{Colors.CYAN}Operation: {operation}{Colors.NC}")
+        add_event('INFO', f"Operation: {operation}")
     
     # Run CLI command
+    add_event('INFO', f"Executing CLI command: {operation}")
     success, response, error, command, trace_id = run_cli_command(operation, payload, timeout, verbose, enable_trace_id)
     
+    # Add command as event
+    add_event('INFO', f"Command:\n\n{command}")
+    
+    # Load and add GraphQL query/mutation as events
+    query_payload = load_query_payload(operation)
+    if query_payload:
+        query_text = query_payload.get('query', '')
+        
+        if query_text:
+            # Format query text (replace \t with spaces, keep newlines)
+            formatted_query = query_text.replace('\t', '  ')
+            add_event('INFO', f"Query:\n\n{formatted_query}")
+    
+    # Add trace ID as event if available
+    if trace_id:
+        add_event('INFO', f"      Trace ID: {trace_id}")
+    
     if not success:
+        end_time = int(time.time() * 1000)
+        add_event('ERROR', f"Error: {error}")
         result = {
             'name': name,
             'description': description,
             'status': 'failed',
             'error': error,
-            'command': command
+            'command': command,
+            'operation': operation,
+            'payload': payload,
+            'startTime': start_time,
+            'endTime': end_time,
+            'events': events
         }
         if trace_id:
             result['trace_id'] = trace_id
@@ -543,13 +617,24 @@ def run_test_from_config(test_key: str, test_config: Dict, verbose: bool = False
                 path = '.'.join(err.get('path', [])) if err.get('path') else 'N/A'
                 error_messages.append(f"GraphQL Error at path '{path}': {msg}")
             
+            end_time = int(time.time() * 1000)
+            add_event('ERROR', '      Error: GraphQL errors detected in response')
+            # Add error details
+            for error_msg in error_messages:
+                add_event('ERROR', f"      {error_msg}")
+            
             result = {
                 'name': name,
                 'description': description,
                 'status': 'failed',
                 'error': 'GraphQL errors detected in response',
                 'failures': error_messages,
-                'command': command
+                'command': command,
+                'operation': operation,
+                'payload': payload,
+                'startTime': start_time,
+                'endTime': end_time,
+                'events': events
             }
             if trace_id:
                 result['trace_id'] = trace_id
@@ -560,6 +645,7 @@ def run_test_from_config(test_key: str, test_config: Dict, verbose: bool = False
     passed_assertions = []
     failed_assertions = []
     
+    add_event('INFO', f"Running {len(assertions)} assertion(s)")
     for i, assertion in enumerate(assertions):
         passed, message = evaluate_assertion(response, assertion)
         
@@ -567,15 +653,21 @@ def run_test_from_config(test_key: str, test_config: Dict, verbose: bool = False
             passed_assertions.append(message)
             if verbose:
                 print(f"{Colors.CYAN}  ✓ Assertion {i+1}: {message}{Colors.NC}")
+                add_event('INFO', f"Assertion {i+1} passed: {message}")
         else:
             failed_assertions.append(message)
             print(f"{Colors.RED}  ✗ Assertion {i+1}: {message}{Colors.NC}")
+            add_event('ERROR', f"Assertion {i+1} failed: {message}")
     
     # Determine overall test status
     if failed_assertions:
         status = 'failed'
+        add_event('ERROR', f"Test failed with {len(failed_assertions)} failed assertion(s)")
     else:
         status = 'passed'
+        add_event('INFO', f"Test passed with {len(passed_assertions)} assertion(s)")
+    
+    end_time = int(time.time() * 1000)
     
     result = {
         'name': test_key,
@@ -585,7 +677,12 @@ def run_test_from_config(test_key: str, test_config: Dict, verbose: bool = False
         'failed_assertions': len(failed_assertions),
         'failures': failed_assertions,
         'response_sample': str(response)[:200] if verbose else None,
-        'command': command
+        'command': command,
+        'operation': operation,  # e.g., "query.accountMetrics" or "mutation.createSite"
+        'payload': payload,  # The GraphQL variables/payload
+        'startTime': start_time,
+        'endTime': end_time,
+        'events': events
     }
     if trace_id:
         result['trace_id'] = trace_id
@@ -707,3 +804,61 @@ def print_test_summary(passed: int, failed: int, skipped: int):
         print(f"\n{Colors.GREEN}✓ All tests passed!{Colors.NC}")
     else:
         print(f"\n{Colors.RED}✗ {failed} test(s) failed{Colors.NC}")
+
+
+def convert_test_result_to_json_format(test_result: Dict[str, Any], external_test_report_link: str = None) -> Dict[str, Any]:
+    """
+    Convert a test result dictionary to the JSON format requested.
+    
+    Args:
+        test_result: Test result dictionary from run_test_from_config
+        external_test_report_link: Optional link to external test report
+    
+    Returns:
+        Dictionary in the requested JSON format
+    """
+    # Map status to uppercase PASSED/FAILED
+    status = test_result.get('status', 'failed').upper()
+    if status == 'PASSED':
+        status = 'PASSED'
+    elif status == 'FAILED':
+        status = 'FAILED'
+    else:
+        status = 'FAILED'  # error -> FAILED
+    
+    # Build step
+    step = {
+        'startTime': test_result.get('startTime', int(time.time() * 1000)),
+        'endTime': test_result.get('endTime', int(time.time() * 1000)),
+        'name': test_result.get('name', 'Unknown Test'),
+        'status': status,
+        'events': test_result.get('events', [])
+    }
+    
+    # Add failure information if failed
+    if status == 'FAILED':
+        # Combine error and failures into failureMessage
+        failure_parts = []
+        if test_result.get('error'):
+            failure_parts.append(test_result['error'])
+        if test_result.get('failures'):
+            failure_parts.extend(test_result['failures'])
+        
+        if failure_parts:
+            step['failureMessage'] = '; '.join(failure_parts)
+        
+        # Use command as stackTrace if available
+        if test_result.get('command'):
+            step['stackTrace'] = test_result['command']
+        elif test_result.get('error'):
+            step['stackTrace'] = test_result['error']
+    
+    # Build result
+    result = {
+        'steps': [step]
+    }
+    
+    if external_test_report_link:
+        result['externalTestReportLink'] = external_test_report_link
+    
+    return result

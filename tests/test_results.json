@@ -1,0 +1,2003 @@
+[
+  {
+    "steps": [
+      {
+        "startTime": 1764922978713,
+        "endTime": 1764922978994,
+        "name": "query.accountBySubdomain - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922978713,
+            "level": "INFO",
+            "event": "Starting test: query.accountBySubdomain - Generated Test"
+          },
+          {
+            "startTime": 1764922978713,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountBySubdomain"
+          },
+          {
+            "startTime": 1764922978994,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountBySubdomain '{\n  \"subdomains\": [\n    \"AnalystDemo\"\n  ],\n  \"assertions\": [\n    \"accountBySubdomain\"\n  ]\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922978994,
+        "endTime": 1764922979331,
+        "name": "query.accountManagement - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922978994,
+            "level": "INFO",
+            "event": "Starting test: query.accountManagement - Generated Test"
+          },
+          {
+            "startTime": 1764922978994,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountManagement"
+          },
+          {
+            "startTime": 1764922979331,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountManagement '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922979331,
+        "endTime": 1764922979599,
+        "name": "query.accountMetrics - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922979331,
+            "level": "INFO",
+            "event": "Starting test: query.accountMetrics - Generated Test"
+          },
+          {
+            "startTime": 1764922979331,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountMetrics"
+          },
+          {
+            "startTime": 1764922979599,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountMetrics '{\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922979599,
+        "endTime": 1764922979909,
+        "name": "query.accountRoles - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922979599,
+            "level": "INFO",
+            "event": "Starting test: query.accountRoles - Generated Test"
+          },
+          {
+            "startTime": 1764922979599,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountRoles"
+          },
+          {
+            "startTime": 1764922979909,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountRoles '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922979909,
+        "endTime": 1764922980203,
+        "name": "query.accountSnapshot - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922979909,
+            "level": "INFO",
+            "event": "Starting test: query.accountSnapshot - Generated Test"
+          },
+          {
+            "startTime": 1764922979909,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountSnapshot"
+          },
+          {
+            "startTime": 1764922980203,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountSnapshot '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922980203,
+        "endTime": 1764922980479,
+        "name": "query.admin - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922980203,
+            "level": "INFO",
+            "event": "Starting test: query.admin - Generated Test"
+          },
+          {
+            "startTime": 1764922980203,
+            "level": "INFO",
+            "event": "Executing CLI command: query.admin"
+          },
+          {
+            "startTime": 1764922980479,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query admin '{\n  \"adminID\": \"0\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922980479,
+        "endTime": 1764922980753,
+        "name": "query.admins - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922980479,
+            "level": "INFO",
+            "event": "Starting test: query.admins - Generated Test"
+          },
+          {
+            "startTime": 1764922980479,
+            "level": "INFO",
+            "event": "Executing CLI command: query.admins"
+          },
+          {
+            "startTime": 1764922980753,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query admins '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922980753,
+        "endTime": 1764922981016,
+        "name": "query.auditFeed - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922980753,
+            "level": "INFO",
+            "event": "Starting test: query.auditFeed - Generated Test"
+          },
+          {
+            "startTime": 1764922980753,
+            "level": "INFO",
+            "event": "Executing CLI command: query.auditFeed"
+          },
+          {
+            "startTime": 1764922981016,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query auditFeed '{\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922981016,
+        "endTime": 1764922981291,
+        "name": "query.catalogs.contentTypeGroupList - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922981016,
+            "level": "INFO",
+            "event": "Starting test: query.catalogs.contentTypeGroupList - Generated Test"
+          },
+          {
+            "startTime": 1764922981016,
+            "level": "INFO",
+            "event": "Executing CLI command: query.catalogs.contentTypeGroupList"
+          },
+          {
+            "startTime": 1764922981291,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query catalogs contentTypeGroupList '{\n  \"catalogApplicationContentTypeGroupListInput\": {\n    \"filter\": [],\n    \"paging\": {\n      \"from\": 0,\n      \"limit\": 100\n    }\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922981291,
+        "endTime": 1764922981565,
+        "name": "query.container.fqdn.downloadFile - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922981291,
+            "level": "INFO",
+            "event": "Starting test: query.container.fqdn.downloadFile - Generated Test"
+          },
+          {
+            "startTime": 1764922981291,
+            "level": "INFO",
+            "event": "Executing CLI command: query.container.fqdn.downloadFile"
+          },
+          {
+            "startTime": 1764922981565,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query container fqdn downloadFile '{\n  \"downloadFqdnContainerFileInput\": {\n    \"by\": \"NAME\",\n    \"input\": \"fqdn_container\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922981565,
+        "endTime": 1764922981906,
+        "name": "query.container.fqdn.search - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922981566,
+            "level": "INFO",
+            "event": "Starting test: query.container.fqdn.search - Generated Test"
+          },
+          {
+            "startTime": 1764922981566,
+            "level": "INFO",
+            "event": "Executing CLI command: query.container.fqdn.search"
+          },
+          {
+            "startTime": 1764922981906,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query container fqdn search '{\n  \"fqdnContainerSearchInput\": {\n    \"ref\": {\n      \"by\": \"NAME\",\n      \"input\": \"fqdn_container\"\n    }\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922981906,
+        "endTime": 1764922982185,
+        "name": "query.container.fqdn.searchFqdn - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922981906,
+            "level": "INFO",
+            "event": "Starting test: query.container.fqdn.searchFqdn - Generated Test"
+          },
+          {
+            "startTime": 1764922981906,
+            "level": "INFO",
+            "event": "Executing CLI command: query.container.fqdn.searchFqdn"
+          },
+          {
+            "startTime": 1764922982185,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query container fqdn searchFqdn '{\n  \"fqdnContainerSearchFqdnInput\": {\n    \"fqdn\": \"something.com\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922982185,
+        "endTime": 1764922982452,
+        "name": "query.container.ipAddressRange.downloadFile - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922982185,
+            "level": "INFO",
+            "event": "Starting test: query.container.ipAddressRange.downloadFile - Generated Test"
+          },
+          {
+            "startTime": 1764922982185,
+            "level": "INFO",
+            "event": "Executing CLI command: query.container.ipAddressRange.downloadFile"
+          },
+          {
+            "startTime": 1764922982452,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query container ipAddressRange downloadFile '{\n  \"downloadIpAddressRangeContainerFileInput\": {\n    \"by\": \"NAME\",\n    \"input\": \"ip_container\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922982452,
+        "endTime": 1764922982714,
+        "name": "query.container.list - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922982452,
+            "level": "INFO",
+            "event": "Starting test: query.container.list - Generated Test"
+          },
+          {
+            "startTime": 1764922982452,
+            "level": "INFO",
+            "event": "Executing CLI command: query.container.list"
+          },
+          {
+            "startTime": 1764922982714,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query container list '{\n  \"containerSearchInput\": {\n    \"refs\": [],\n    \"types\": [\n      \"FQDN\",\n      \"IP_RANGE\"\n    ]\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922982714,
+        "endTime": 1764922982977,
+        "name": "query.enterpriseDirectory - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922982714,
+            "level": "INFO",
+            "event": "Starting test: query.enterpriseDirectory - Generated Test"
+          },
+          {
+            "startTime": 1764922982714,
+            "level": "INFO",
+            "event": "Executing CLI command: query.enterpriseDirectory"
+          },
+          {
+            "startTime": 1764922982977,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query enterpriseDirectory '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922982978,
+        "endTime": 1764922983244,
+        "name": "query.entityLookup - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922982978,
+            "level": "INFO",
+            "event": "Starting test: query.entityLookup - Generated Test"
+          },
+          {
+            "startTime": 1764922982978,
+            "level": "INFO",
+            "event": "Executing CLI command: query.entityLookup"
+          },
+          {
+            "startTime": 1764922983244,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query entityLookup '{\n  \"type\": \"account\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922983244,
+        "endTime": 1764922983508,
+        "name": "query.events - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922983244,
+            "level": "INFO",
+            "event": "Starting test: query.events - Generated Test"
+          },
+          {
+            "startTime": 1764922983244,
+            "level": "INFO",
+            "event": "Executing CLI command: query.events"
+          },
+          {
+            "startTime": 1764922983508,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query events '{\n  \"eventsDimension\": [\n    {\n      \"fieldName\": \"action\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922983508,
+        "endTime": 1764922983778,
+        "name": "query.eventsFeed - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922983508,
+            "level": "INFO",
+            "event": "Starting test: query.eventsFeed - Generated Test"
+          },
+          {
+            "startTime": 1764922983508,
+            "level": "INFO",
+            "event": "Executing CLI command: query.eventsFeed"
+          },
+          {
+            "startTime": 1764922983778,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query eventsFeed '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922983778,
+        "endTime": 1764922984064,
+        "name": "query.groups.whereUsed - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922983778,
+            "level": "INFO",
+            "event": "Starting test: query.groups.whereUsed - Generated Test"
+          },
+          {
+            "startTime": 1764922983778,
+            "level": "INFO",
+            "event": "Executing CLI command: query.groups.whereUsed"
+          },
+          {
+            "startTime": 1764922984064,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query groups whereUsed '{\n  \"groupRefInput\": {\n    \"by\": \"NAME\",\n    \"input\": \"Advanced Group\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922984064,
+        "endTime": 1764922984335,
+        "name": "query.hardware - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922984064,
+            "level": "INFO",
+            "event": "Starting test: query.hardware - Generated Test"
+          },
+          {
+            "startTime": 1764922984064,
+            "level": "INFO",
+            "event": "Executing CLI command: query.hardware"
+          },
+          {
+            "startTime": 1764922984335,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query hardware '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922984335,
+        "endTime": 1764922984603,
+        "name": "query.hardwareManagement - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922984335,
+            "level": "INFO",
+            "event": "Starting test: query.hardwareManagement - Generated Test"
+          },
+          {
+            "startTime": 1764922984335,
+            "level": "INFO",
+            "event": "Executing CLI command: query.hardwareManagement"
+          },
+          {
+            "startTime": 1764922984603,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query hardwareManagement '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922984603,
+        "endTime": 1764922984866,
+        "name": "query.licensing - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922984603,
+            "level": "INFO",
+            "event": "Starting test: query.licensing - Generated Test"
+          },
+          {
+            "startTime": 1764922984603,
+            "level": "INFO",
+            "event": "Executing CLI command: query.licensing"
+          },
+          {
+            "startTime": 1764922984866,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query licensing '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922984866,
+        "endTime": 1764922985128,
+        "name": "query.policy.antiMalwareFileHash.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922984866,
+            "level": "INFO",
+            "event": "Starting test: query.policy.antiMalwareFileHash.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922984866,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.antiMalwareFileHash.policy"
+          },
+          {
+            "startTime": 1764922985128,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy antiMalwareFileHash policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922985128,
+        "endTime": 1764922985396,
+        "name": "query.policy.appTenantRestriction.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922985128,
+            "level": "INFO",
+            "event": "Starting test: query.policy.appTenantRestriction.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922985128,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.appTenantRestriction.policy"
+          },
+          {
+            "startTime": 1764922985396,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy appTenantRestriction policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922985396,
+        "endTime": 1764922985660,
+        "name": "query.policy.applicationControl.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922985396,
+            "level": "INFO",
+            "event": "Starting test: query.policy.applicationControl.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922985396,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.applicationControl.policy"
+          },
+          {
+            "startTime": 1764922985660,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy applicationControl policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922985660,
+        "endTime": 1764922985920,
+        "name": "query.policy.dynamicIpAllocation.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922985660,
+            "level": "INFO",
+            "event": "Starting test: query.policy.dynamicIpAllocation.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922985660,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.dynamicIpAllocation.policy"
+          },
+          {
+            "startTime": 1764922985920,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy dynamicIpAllocation policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922985920,
+        "endTime": 1764922986201,
+        "name": "query.policy.internetFirewall.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922985920,
+            "level": "INFO",
+            "event": "Starting test: query.policy.internetFirewall.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922985920,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.internetFirewall.policy"
+          },
+          {
+            "startTime": 1764922986201,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy internetFirewall policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922986201,
+        "endTime": 1764922986498,
+        "name": "query.policy.remotePortFwd.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922986201,
+            "level": "INFO",
+            "event": "Starting test: query.policy.remotePortFwd.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922986201,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.remotePortFwd.policy"
+          },
+          {
+            "startTime": 1764922986498,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy remotePortFwd policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922986498,
+        "endTime": 1764922986815,
+        "name": "query.policy.terminalServer.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922986498,
+            "level": "INFO",
+            "event": "Starting test: query.policy.terminalServer.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922986498,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.terminalServer.policy"
+          },
+          {
+            "startTime": 1764922986815,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy terminalServer policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922986815,
+        "endTime": 1764922987078,
+        "name": "query.policy.tlsInspect.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922986815,
+            "level": "INFO",
+            "event": "Starting test: query.policy.tlsInspect.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922986815,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.tlsInspect.policy"
+          },
+          {
+            "startTime": 1764922987078,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy tlsInspect policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922987078,
+        "endTime": 1764922987372,
+        "name": "query.policy.wanFirewall.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922987078,
+            "level": "INFO",
+            "event": "Starting test: query.policy.wanFirewall.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922987078,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.wanFirewall.policy"
+          },
+          {
+            "startTime": 1764922987372,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy wanFirewall policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922987372,
+        "endTime": 1764922987649,
+        "name": "query.policy.wanNetwork.policy - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922987372,
+            "level": "INFO",
+            "event": "Starting test: query.policy.wanNetwork.policy - Generated Test"
+          },
+          {
+            "startTime": 1764922987372,
+            "level": "INFO",
+            "event": "Executing CLI command: query.policy.wanNetwork.policy"
+          },
+          {
+            "startTime": 1764922987649,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query policy wanNetwork policy '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922987649,
+        "endTime": 1764922987941,
+        "name": "query.popLocations - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922987649,
+            "level": "INFO",
+            "event": "Starting test: query.popLocations - Generated Test"
+          },
+          {
+            "startTime": 1764922987649,
+            "level": "INFO",
+            "event": "Executing CLI command: query.popLocations"
+          },
+          {
+            "startTime": 1764922987941,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query popLocations '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922987941,
+        "endTime": 1764922988220,
+        "name": "query.sandbox - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922987941,
+            "level": "INFO",
+            "event": "Starting test: query.sandbox - Generated Test"
+          },
+          {
+            "startTime": 1764922987941,
+            "level": "INFO",
+            "event": "Executing CLI command: query.sandbox"
+          },
+          {
+            "startTime": 1764922988220,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query sandbox '{\n  \"sandboxReportsInput\": {\n    \"paging\": {\n      \"from\": 0,\n      \"limit\": 100\n    }\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922988220,
+        "endTime": 1764922988490,
+        "name": "query.servicePrincipalAdmin - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922988220,
+            "level": "INFO",
+            "event": "Starting test: query.servicePrincipalAdmin - Generated Test"
+          },
+          {
+            "startTime": 1764922988220,
+            "level": "INFO",
+            "event": "Executing CLI command: query.servicePrincipalAdmin"
+          },
+          {
+            "startTime": 1764922988490,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query servicePrincipalAdmin '{\n  \"adminID\": \"0\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922988490,
+        "endTime": 1764922988755,
+        "name": "query.site.availableVersionList - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922988490,
+            "level": "INFO",
+            "event": "Starting test: query.site.availableVersionList - Generated Test"
+          },
+          {
+            "startTime": 1764922988490,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.availableVersionList"
+          },
+          {
+            "startTime": 1764922988755,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site availableVersionList '{\n  \"availableVersionListInput\": {\n    \"platforms\": [\n      \"OSX\"\n    ]\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922988755,
+        "endTime": 1764922989025,
+        "name": "query.site.bgpPeer - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922988755,
+            "level": "INFO",
+            "event": "Starting test: query.site.bgpPeer - Generated Test"
+          },
+          {
+            "startTime": 1764922988755,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.bgpPeer"
+          },
+          {
+            "startTime": 1764922989025,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site bgpPeer '{\n  \"bgpPeerRefInput\": {\n    \"by\": \"ID\",\n    \"input\": \"string\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922989025,
+        "endTime": 1764922989295,
+        "name": "query.site.bgpPeerList - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922989025,
+            "level": "INFO",
+            "event": "Starting test: query.site.bgpPeerList - Generated Test"
+          },
+          {
+            "startTime": 1764922989025,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.bgpPeerList"
+          },
+          {
+            "startTime": 1764922989295,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site bgpPeerList '{\n  \"bgpPeerListInput\": {\n    \"site\": {\n      \"by\": \"NAME\",\n      \"input\": \"PM demo branch\"\n    }\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922989295,
+        "endTime": 1764922989561,
+        "name": "query.site.cloudInterconnectConnectionConnectivity - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922989295,
+            "level": "INFO",
+            "event": "Starting test: query.site.cloudInterconnectConnectionConnectivity - Generated Test"
+          },
+          {
+            "startTime": 1764922989295,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.cloudInterconnectConnectionConnectivity"
+          },
+          {
+            "startTime": 1764922989561,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site cloudInterconnectConnectionConnectivity '{\n  \"cloudInterconnectConnectionConnectivityInput\": {\n    \"id\": \"id\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922989561,
+        "endTime": 1764922989823,
+        "name": "query.site.cloudInterconnectPhysicalConnection - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922989561,
+            "level": "INFO",
+            "event": "Starting test: query.site.cloudInterconnectPhysicalConnection - Generated Test"
+          },
+          {
+            "startTime": 1764922989561,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.cloudInterconnectPhysicalConnection"
+          },
+          {
+            "startTime": 1764922989823,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site cloudInterconnectPhysicalConnection '{\n  \"cloudInterconnectPhysicalConnectionInput\": {\n    \"id\": \"id\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922989823,
+        "endTime": 1764922990091,
+        "name": "query.site.cloudInterconnectPhysicalConnectionId - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922989823,
+            "level": "INFO",
+            "event": "Starting test: query.site.cloudInterconnectPhysicalConnectionId - Generated Test"
+          },
+          {
+            "startTime": 1764922989823,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.cloudInterconnectPhysicalConnectionId"
+          },
+          {
+            "startTime": 1764922990091,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site cloudInterconnectPhysicalConnectionId '{\n  \"cloudInterconnectPhysicalConnectionIdInput\": {\n    \"haRole\": \"PRIMARY\",\n    \"site\": {\n      \"by\": \"NAME\",\n      \"input\": \"Interconnect\"\n    }\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922990091,
+        "endTime": 1764922990359,
+        "name": "query.site.secondaryAwsVSocket - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922990091,
+            "level": "INFO",
+            "event": "Starting test: query.site.secondaryAwsVSocket - Generated Test"
+          },
+          {
+            "startTime": 1764922990091,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.secondaryAwsVSocket"
+          },
+          {
+            "startTime": 1764922990359,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site secondaryAwsVSocket '{\n  \"socketId\": \"id\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922990359,
+        "endTime": 1764922990622,
+        "name": "query.site.secondaryAzureVSocket - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922990359,
+            "level": "INFO",
+            "event": "Starting test: query.site.secondaryAzureVSocket - Generated Test"
+          },
+          {
+            "startTime": 1764922990359,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.secondaryAzureVSocket"
+          },
+          {
+            "startTime": 1764922990622,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site secondaryAzureVSocket '{\n  \"socketId\": \"id\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922990622,
+        "endTime": 1764922990884,
+        "name": "query.site.siteBgpStatus - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922990622,
+            "level": "INFO",
+            "event": "Starting test: query.site.siteBgpStatus - Generated Test"
+          },
+          {
+            "startTime": 1764922990622,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.siteBgpStatus"
+          },
+          {
+            "startTime": 1764922990884,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site siteBgpStatus '{\n  \"siteBgpStatusInput\": {\n    \"site\": {\n      \"by\": \"NAME\",\n      \"input\": \"PM demo branch\"\n    }\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922990884,
+        "endTime": 1764922991147,
+        "name": "query.site.siteGeneralDetails - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922990884,
+            "level": "INFO",
+            "event": "Starting test: query.site.siteGeneralDetails - Generated Test"
+          },
+          {
+            "startTime": 1764922990884,
+            "level": "INFO",
+            "event": "Executing CLI command: query.site.siteGeneralDetails"
+          },
+          {
+            "startTime": 1764922991147,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query site siteGeneralDetails '{\n  \"siteRefInput\": {\n    \"by\": \"ID\",\n    \"input\": \"string\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922991147,
+        "endTime": 1764922991416,
+        "name": "query.subDomains - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922991147,
+            "level": "INFO",
+            "event": "Starting test: query.subDomains - Generated Test"
+          },
+          {
+            "startTime": 1764922991147,
+            "level": "INFO",
+            "event": "Executing CLI command: query.subDomains"
+          },
+          {
+            "startTime": 1764922991416,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query subDomains '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922991416,
+        "endTime": 1764922991679,
+        "name": "query.xdr.stories - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922991416,
+            "level": "INFO",
+            "event": "Starting test: query.xdr.stories - Generated Test"
+          },
+          {
+            "startTime": 1764922991416,
+            "level": "INFO",
+            "event": "Executing CLI command: query.xdr.stories"
+          },
+          {
+            "startTime": 1764922991679,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query xdr stories '{\n  \"perSecond\": false,\n  \"storyInput\": {\n    \"filter\": [\n      {\n        \"timeFrame\": {\n          \"time\": \"last.P30D\"\n        }\n      }\n    ],\n    \"paging\": {\n      \"from\": 0,\n      \"limit\": 5\n    },\n    \"sort\": []\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922991679,
+        "endTime": 1764922991950,
+        "name": "query.xdr.story - Generated Test",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922991679,
+            "level": "INFO",
+            "event": "Starting test: query.xdr.story - Generated Test"
+          },
+          {
+            "startTime": 1764922991679,
+            "level": "INFO",
+            "event": "Executing CLI command: query.xdr.story"
+          },
+          {
+            "startTime": 1764922991950,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query xdr story '{\n  \"perSecond\": false,\n  \"storyId\": \"689affd12fbfda452b652f99\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922991952,
+        "endTime": 1764922992214,
+        "name": "Account Metrics - Site Health Check",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922991952,
+            "level": "INFO",
+            "event": "Starting test: Account Metrics - Site Health Check"
+          },
+          {
+            "startTime": 1764922991952,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountMetrics"
+          },
+          {
+            "startTime": 1764922992214,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountMetrics '{\n  \"buckets\": 24,\n  \"groupDevices\": true,\n  \"groupInterfaces\": true,\n  \"labels\": [\n    \"bytesDownstream\",\n    \"bytesUpstream\",\n    \"health\",\n    \"lastMileLatency\",\n    \"lastMilePacketLoss\",\n    \"rtt\"\n  ],\n  \"siteIDs\": [\n    \"144905\"\n  ],\n  \"timeFrame\": \"last.P1D\",\n  \"perSecond\": true,\n  \"toRate\": true\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922992214,
+        "endTime": 1764922992478,
+        "name": "Account Metrics - User Performance Analysis",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922992214,
+            "level": "INFO",
+            "event": "Starting test: Account Metrics - User Performance Analysis"
+          },
+          {
+            "startTime": 1764922992214,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountMetrics"
+          },
+          {
+            "startTime": 1764922992478,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountMetrics '{\n  \"buckets\": 24,\n  \"labels\": [\n    \"health\",\n    \"jitterDownstream\",\n    \"jitterUpstream\",\n    \"lastMileLatency\",\n    \"lastMilePacketLoss\",\n    \"packetsDownstream\",\n    \"packetsUpstream\"\n  ],\n  \"timeFrame\": \"last.P1D\",\n  \"userIDs\": [\n    \"1000000\"\n  ]\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922992478,
+        "endTime": 1764922992744,
+        "name": "Account Metrics - Quick Health Overview",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922992478,
+            "level": "INFO",
+            "event": "Starting test: Account Metrics - Quick Health Overview"
+          },
+          {
+            "startTime": 1764922992478,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountMetrics"
+          },
+          {
+            "startTime": 1764922992744,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountMetrics '{\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922992744,
+        "endTime": 1764922993019,
+        "name": "Account Metrics - Detailed Bandwidth Analysis",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922992744,
+            "level": "INFO",
+            "event": "Starting test: Account Metrics - Detailed Bandwidth Analysis"
+          },
+          {
+            "startTime": 1764922992744,
+            "level": "INFO",
+            "event": "Executing CLI command: query.accountMetrics"
+          },
+          {
+            "startTime": 1764922993019,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query accountMetrics '{\n  \"buckets\": 48,\n  \"labels\": [\n    \"bytesDownstream\",\n    \"bytesUpstream\",\n    \"bytesTotal\",\n    \"bytesDownstreamMax\",\n    \"bytesUpstreamMax\",\n    \"lostDownstreamPcnt\",\n    \"lostUpstreamPcnt\"\n  ],\n  \"siteIDs\": [\n    \"132814\"\n  ],\n  \"timeFrame\": \"last.P2D\",\n  \"perSecond\": true,\n  \"withMissingData\": true\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922993019,
+        "endTime": 1764922993282,
+        "name": "AppStats - Apps by Risk Score",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922993019,
+            "level": "INFO",
+            "event": "Starting test: AppStats - Apps by Risk Score"
+          },
+          {
+            "startTime": 1764922993019,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922993282,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"appStatsFilter\": [\n    {\n      \"fieldName\": \"risk_score\",\n      \"operator\": \"gte\",\n      \"values\": [\n        \"5\"\n      ]\n    }\n  ],\n  \"appStatsSort\": [\n    {\n      \"fieldName\": \"risk_score\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"dimension\": [\n    {\n      \"fieldName\": \"application_name\"\n    },\n    {\n      \"fieldName\": \"risk_score\"\n    },\n    {\n      \"fieldName\": \"user_name\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"flows_created\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922993282,
+        "endTime": 1764922993546,
+        "name": "AppStats - App Utilization",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922993282,
+            "level": "INFO",
+            "event": "Starting test: AppStats - App Utilization"
+          },
+          {
+            "startTime": 1764922993282,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922993546,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"dimension\": [\n    {\n      \"fieldName\": \"application_name\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"flows_created\"\n    }\n  ],\n  \"appStatsSort\": [\n    {\n      \"fieldName\": \"traffic\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"timeFrame\": \"last.P7D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922993546,
+        "endTime": 1764922993811,
+        "name": "AppStats - Traffic by Country",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922993546,
+            "level": "INFO",
+            "event": "Starting test: AppStats - Traffic by Country"
+          },
+          {
+            "startTime": 1764922993546,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922993811,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"dimension\": [\n    {\n      \"fieldName\": \"site_country\"\n    },\n    {\n      \"fieldName\": \"src_site_country_code\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    },\n    {\n      \"aggType\": \"count_distinct\",\n      \"fieldName\": \"user_name\"\n    }\n  ],\n  \"timeFrame\": \"last.P1M\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922993811,
+        "endTime": 1764922994090,
+        "name": "AppStats - User Activity",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922993811,
+            "level": "INFO",
+            "event": "Starting test: AppStats - User Activity"
+          },
+          {
+            "startTime": 1764922993811,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922994090,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"dimension\": [\n    {\n      \"fieldName\": \"application_name\"\n    },\n    {\n      \"fieldName\": \"user_name\"\n    },\n    {\n      \"fieldName\": \"risk_score\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"downstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"upstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922994091,
+        "endTime": 1764922994365,
+        "name": "AppStats - User App Risk",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922994091,
+            "level": "INFO",
+            "event": "Starting test: AppStats - User App Risk"
+          },
+          {
+            "startTime": 1764922994091,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922994365,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"appStatsFilter\": [],\n  \"appStatsSort\": [],\n  \"dimension\": [\n    {\n      \"fieldName\": \"application_name\"\n    },\n    {\n      \"fieldName\": \"user_name\"\n    },\n    {\n      \"fieldName\": \"risk_score\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"downstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"upstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922994365,
+        "endTime": 1764922994640,
+        "name": "AppStats - User Bandwidth",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922994365,
+            "level": "INFO",
+            "event": "Starting test: AppStats - User Bandwidth"
+          },
+          {
+            "startTime": 1764922994365,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922994640,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"dimension\": [\n    {\n      \"fieldName\": \"user_name\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"downstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"upstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"flows_created\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922994640,
+        "endTime": 1764922994915,
+        "name": "AppStats - User Risk Report",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922994640,
+            "level": "INFO",
+            "event": "Starting test: AppStats - User Risk Report"
+          },
+          {
+            "startTime": 1764922994640,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStats"
+          },
+          {
+            "startTime": 1764922994915,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStats '{\n  \"dimension\": [\n    {\n      \"fieldName\": \"application_name\"\n    },\n    {\n      \"fieldName\": \"user_name\"\n    },\n    {\n      \"fieldName\": \"risk_score\"\n    }\n  ],\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"downstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"upstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922994915,
+        "endTime": 1764922995176,
+        "name": "appStatsTimeSeries - Hourly Traffic Analysis",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922994915,
+            "level": "INFO",
+            "event": "Starting test: appStatsTimeSeries - Hourly Traffic Analysis"
+          },
+          {
+            "startTime": 1764922994915,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appStatsTimeSeries"
+          },
+          {
+            "startTime": 1764922995176,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appStatsTimeSeries '{\n  \"buckets\": 24,\n  \"dimension\": [\n    {\n      \"fieldName\": \"user_name\"\n    },\n    {\n      \"fieldName\": \"application_name\"\n    }\n  ],\n  \"perSecond\": false,\n  \"measure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"upstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"downstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"traffic\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922995177,
+        "endTime": 1764922995453,
+        "name": "appCategory list",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922995177,
+            "level": "INFO",
+            "event": "Starting test: appCategory list"
+          },
+          {
+            "startTime": 1764922995177,
+            "level": "INFO",
+            "event": "Executing CLI command: query.appCategory"
+          },
+          {
+            "startTime": 1764922995453,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query appCategory '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922995453,
+        "endTime": 1764922995715,
+        "name": "EntityLookup site list",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922995454,
+            "level": "INFO",
+            "event": "Starting test: EntityLookup site list"
+          },
+          {
+            "startTime": 1764922995454,
+            "level": "INFO",
+            "event": "Executing CLI command: entity.site.list"
+          },
+          {
+            "startTime": 1764922995715,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli entity site list '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922995715,
+        "endTime": 1764922995979,
+        "name": "SCIM Get Users",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922995715,
+            "level": "INFO",
+            "event": "Starting test: SCIM Get Users"
+          },
+          {
+            "startTime": 1764922995715,
+            "level": "INFO",
+            "event": "Executing CLI command: scim.get_users"
+          },
+          {
+            "startTime": 1764922995979,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli scim get_users '{}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922995979,
+        "endTime": 1764922996258,
+        "name": "EventsTimeSeries -  Internet Firewall Events Analysis",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922995979,
+            "level": "INFO",
+            "event": "Starting test: EventsTimeSeries -  Internet Firewall Events Analysis"
+          },
+          {
+            "startTime": 1764922995979,
+            "level": "INFO",
+            "event": "Executing CLI command: query.eventsTimeSeries"
+          },
+          {
+            "startTime": 1764922996258,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query eventsTimeSeries '{\n  \"buckets\": 168,\n  \"eventsDimension\": [\n    {\n      \"fieldName\": \"rule_name\"\n    }\n  ],\n  \"eventsFilter\": [\n    {\n      \"fieldName\": \"event_sub_type\",\n      \"operator\": \"is\",\n      \"values\": [\n        \"Internet Firewall\"\n      ]\n    }\n  ],\n  \"eventsMeasure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"event_count\"\n    }\n  ],\n  \"perSecond\": false,\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922996258,
+        "endTime": 1764922996521,
+        "name": "siteLocation",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922996258,
+            "level": "INFO",
+            "event": "Starting test: siteLocation"
+          },
+          {
+            "startTime": 1764922996258,
+            "level": "INFO",
+            "event": "Executing CLI command: query.siteLocation"
+          },
+          {
+            "startTime": 1764922996521,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query siteLocation '{\n  \"filters\": [\n    {\n      \"search\": \"San Diego\",\n      \"field\": \"city\",\n      \"operation\": \"startsWith\"\n    },\n    {\n      \"search\": \"nia\",\n      \"field\": \"stateName\",\n      \"operation\": \"endsWith\"\n    },\n    {\n      \"search\": \"United\",\n      \"field\": \"countryName\",\n      \"operation\": \"contains\"\n    }\n  ]\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922996521,
+        "endTime": 1764922996784,
+        "name": "socketPortMetrics - Daily BW by Interface",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922996521,
+            "level": "INFO",
+            "event": "Starting test: socketPortMetrics - Daily BW by Interface"
+          },
+          {
+            "startTime": 1764922996521,
+            "level": "INFO",
+            "event": "Executing CLI command: query.socketPortMetrics"
+          },
+          {
+            "startTime": 1764922996784,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query socketPortMetrics '{\n  \"socketPortMetricsDimension\": [\n    {\n      \"fieldName\": \"socket_interface\"\n    },\n    {\n      \"fieldName\": \"site_name\"\n    }\n  ],\n  \"socketPortMetricsMeasure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"bytes_total\"\n    }\n  ],\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922996784,
+        "endTime": 1764922997054,
+        "name": "Daily Traffic Patterns",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922996784,
+            "level": "INFO",
+            "event": "Starting test: Daily Traffic Patterns"
+          },
+          {
+            "startTime": 1764922996784,
+            "level": "INFO",
+            "event": "Executing CLI command: query.socketPortMetricsTimeSeries"
+          },
+          {
+            "startTime": 1764922997054,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli query socketPortMetricsTimeSeries '{\n  \"buckets\": 24,\n  \"socketPortMetricsDimension\": [\n    {\n      \"fieldName\": \"socket_interface\"\n    },\n    {\n      \"fieldName\": \"site_name\"\n    }\n  ],\n  \"socketPortMetricsMeasure\": [\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"bytes_downstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"bytes_upstream\"\n    },\n    {\n      \"aggType\": \"sum\",\n      \"fieldName\": \"bytes_total\"\n    }\n  ],\n  \"perSecond\": false,\n  \"timeFrame\": \"last.P1D\"\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922997054,
+        "endTime": 1764922997320,
+        "name": "AuditFeed - RAW",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922997054,
+            "level": "INFO",
+            "event": "Starting test: AuditFeed - RAW"
+          },
+          {
+            "startTime": 1764922997054,
+            "level": "INFO",
+            "event": "Executing CLI command: raw"
+          },
+          {
+            "startTime": 1764922997320,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli raw  '{\n  \"query\": \"query auditFeed ( $accountIDs:[ID!] $timeFrame:TimeFrame! $auditFieldFilterInput:[AuditFieldFilterInput!] ) { auditFeed ( accountIDs:$accountIDs timeFrame:$timeFrame filters:$auditFieldFilterInput ) { accounts { id records{ fieldsMap } } } }\",\n  \"variables\": {\n    \"accountIDs\": [\n      15412\n    ],\n    \"auditFieldFilterInput\": [],\n    \"timeFrame\": \"last.P14D\"\n  }\n}'"
+      }
+    ]
+  },
+  {
+    "steps": [
+      {
+        "startTime": 1764922997321,
+        "endTime": 1764922997592,
+        "name": "Account Snapshot - RAW",
+        "status": "FAILED",
+        "events": [
+          {
+            "startTime": 1764922997321,
+            "level": "INFO",
+            "event": "Starting test: Account Snapshot - RAW"
+          },
+          {
+            "startTime": 1764922997321,
+            "level": "INFO",
+            "event": "Executing CLI command: raw"
+          },
+          {
+            "startTime": 1764922997592,
+            "level": "ERROR",
+            "event": "Command failed: Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n"
+          }
+        ],
+        "failureMessage": "Command failed with code 1: No Cato CLI profile configured.\nRun 'catocli configure set' to set up your credentials.\n",
+        "stackTrace": "catocli raw  '{\n  \"query\": \"query accountSnapshot ( $accountID:ID ) { accountSnapshot ( accountID:$accountID ) { id timestamp } }\",\n  \"variables\": {\n    \"accountID\": \"15412\"\n  },\n  \"operationName\": \"accountSnapshot\"\n}'"
+      }
+    ]
+  }
+]

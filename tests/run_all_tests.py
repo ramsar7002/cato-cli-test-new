@@ -20,8 +20,11 @@ import subprocess
 import sys
 import argparse
 import json
+import re
+import time
 from pathlib import Path
 from datetime import datetime
+from typing import Dict, Optional
 
 from test_utils import (
     Colors,
@@ -30,7 +33,8 @@ from test_utils import (
     load_custom_tests,
     cleanup_generated_tests,
     run_test_from_config,
-    print_test_summary
+    print_test_summary,
+    convert_test_result_to_json_format
 )
 
 # Get project paths (can be overridden via --dir)
@@ -54,15 +58,22 @@ def set_tests_directory(directory: Path):
 class AllTestsRunner:
     """Orchestrates running all test suites"""
     
-    def __init__(self, verbose: bool = False, stop_on_fail: bool = False):
+    def __init__(self, verbose: bool = False, stop_on_fail: bool = False, json_output: str = None, 
+                 external_test_report_link: str = None, s3_config: Dict = None, s3_verify_ssl: bool = False):
         self.verbose = verbose
         self.stop_on_fail = stop_on_fail
+        self.json_output = json_output
+        self.external_test_report_link = external_test_report_link
+        self.s3_config = s3_config
+        self.s3_verify_ssl = s3_verify_ssl
         self.passed = 0
         self.failed = 0
         self.skipped = 0
         self.validation_passed = False
         self.generated_passed = False
         self.custom_passed = False
+        self.test_results = []  # Store all test results for JSON export
+        self.test_file_mapping = {}  # Map test results to their file paths and suite names
     
     def run_validation_tests(self):
         """Run pytest-based validation tests"""
@@ -137,6 +148,11 @@ class AllTestsRunner:
                 continue
             
             result = run_test_from_config(operation, test_config, self.verbose, "Generated Test", enable_trace_id)
+            
+            # Store result for JSON export with suite name
+            if self.json_output:
+                result['suite_name'] = 'generated'  # Track suite name
+                self.test_results.append(result)
             
             status = result['status']
             if status == 'passed':
@@ -223,6 +239,11 @@ class AllTestsRunner:
             
             result = run_test_from_config(test_key, test_config, self.verbose, "Custom Test", enable_trace_id)
             
+            # Store result for JSON export with suite name
+            if self.json_output:
+                result['suite_name'] = 'custom'  # Track suite name
+                self.test_results.append(result)
+            
             status = result['status']
             if status == 'passed':
                 suite_passed += 1
@@ -299,6 +320,196 @@ class AllTestsRunner:
                 all_passed = False
         
         self.print_overall_summary()
+        
+        # Export JSON if requested
+        if self.json_output:
+            self.export_json_results()
+    
+    def export_json_results(self):
+        """Export test results to individual JSON files in the requested format"""
+        if not self.test_results:
+            print(f"{Colors.YELLOW}No test results to export{Colors.NC}")
+            return
+        
+        # Determine output directory
+        output_path = Path(self.json_output)
+        
+        # If it's a file path (not ending with /), use its parent directory
+        # If it's a directory path, use it directly
+        if output_path.suffix == '.json':
+            # It's a file path, use parent directory
+            output_dir = output_path.parent
+            # Create directory if it doesn't exist
+            output_dir.mkdir(parents=True, exist_ok=True)
+        else:
+            # It's a directory path
+            output_dir = output_path
+            output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Clean up old JSON files in the directory
+        if output_dir.exists():
+            json_files = list(output_dir.glob('*.json'))
+            if json_files:
+                removed_count = 0
+                for json_file in json_files:
+                    try:
+                        json_file.unlink()
+                        removed_count += 1
+                    except Exception as e:
+                        if self.verbose:
+                            print(f"{Colors.YELLOW}Warning: Could not remove {json_file}: {str(e)}{Colors.NC}")
+                if removed_count > 0:
+                    print(f"{Colors.CYAN}Removed {removed_count} previous JSON file(s) from {output_dir}{Colors.NC}")
+        
+        exported_count = 0
+        
+        try:
+            # Export each test result to its own file
+            for test_result in self.test_results:
+                # Convert to JSON format
+                json_result = convert_test_result_to_json_format(
+                    test_result,
+                    self.external_test_report_link
+                )
+                
+                # Generate safe filename from test name
+                test_name = test_result.get('name', 'unknown_test')
+                # Replace invalid filename characters
+                safe_name = re.sub(r'[<>:"/\\|?*]', '_', test_name)
+                safe_name = re.sub(r'\s+', '_', safe_name)
+                safe_name = safe_name[:200]  # Limit length
+                
+                # Create filename
+                filename = f"{safe_name}.json"
+                file_path = output_dir / filename
+                
+                # Handle duplicate filenames
+                counter = 1
+                while file_path.exists():
+                    filename = f"{safe_name}_{counter}.json"
+                    file_path = output_dir / filename
+                    counter += 1
+                
+                # Write individual JSON file
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    json.dump(json_result, f, indent=2, ensure_ascii=False)
+                
+                # Store mapping for S3 upload
+                suite_name = test_result.get('suite_name', 'unknown')
+                self.test_file_mapping[str(file_path)] = {
+                    'test_result': test_result,
+                    'suite_name': suite_name
+                }
+                
+                exported_count += 1
+            
+            print(f"\n{Colors.GREEN}✓ Exported {exported_count} test result(s) to individual JSON files in {output_dir}{Colors.NC}")
+            
+            # Upload to S3 if configured
+            if self.s3_config:
+                self.upload_to_s3()
+        except Exception as e:
+            print(f"{Colors.RED}Error exporting JSON results: {str(e)}{Colors.NC}")
+    
+    def upload_to_s3(self):
+        """Upload test result JSON files to S3"""
+        if not self.test_file_mapping:
+            print(f"{Colors.YELLOW}No files to upload to S3{Colors.NC}")
+            return
+        
+        try:
+            import boto3
+            from botocore.exceptions import ClientError, NoCredentialsError
+        except ImportError:
+            print(f"{Colors.RED}Error: boto3 is required for S3 upload. Install with: pip install boto3{Colors.NC}")
+            return
+        
+        s3_config = self.s3_config
+        region = s3_config.get('region', 'eu-central-1')
+        bucket = s3_config.get('bucket', 'external-test-results')
+        test_framework_repo_name = s3_config.get('testFrameworkRepoName', '')
+        catomatic_cycle = s3_config.get('catomaticCycle', '')
+        catomatic_run_id = s3_config.get('catomaticRunId', '')
+        catomatic_suite_name = s3_config.get('catomaticSuiteName', '')
+        catomatic_timestamp = s3_config.get('catomaticTimestamp', '')
+        
+        # Generate timestamp if not provided
+        if not catomatic_timestamp:
+            catomatic_timestamp = int(time.time() * 1000)  # milliseconds
+        else:
+            # Convert to int if provided as string
+            try:
+                catomatic_timestamp = int(catomatic_timestamp)
+            except (ValueError, TypeError):
+                if self.verbose:
+                    print(f"{Colors.YELLOW}Warning: Invalid timestamp format, generating new timestamp{Colors.NC}")
+                catomatic_timestamp = int(time.time() * 1000)
+        
+        try:
+            # Configure SSL verification (disabled by default)
+            if not self.s3_verify_ssl:
+                import urllib3
+                urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+                # Monkey patch botocore's URLLib3Session to disable SSL verification
+                import botocore.httpsession
+                original_init = botocore.httpsession.URLLib3Session.__init__
+                
+                def patched_init(self, *args, **kwargs):
+                    kwargs['verify'] = False
+                    return original_init(self, *args, **kwargs)
+                
+                botocore.httpsession.URLLib3Session.__init__ = patched_init
+            
+            # Create S3 client
+            s3_client = boto3.client('s3', region_name=region)
+            
+            uploaded_count = 0
+            failed_count = 0
+            
+            for file_path_str, mapping in self.test_file_mapping.items():
+                file_path = Path(file_path_str)
+                # Use provided suite name or fall back to detected suite name
+                suite_name = catomatic_suite_name if catomatic_suite_name else mapping['suite_name']
+                test_result = mapping['test_result']
+                
+                # Get test name from result
+                test_name = test_result.get('name', 'unknown_test')
+                # Sanitize test name for S3 key
+                safe_test_name = re.sub(r'[<>:"/\\|?*]', '_', test_name)
+                safe_test_name = re.sub(r'\s+', '_', safe_test_name)
+                safe_test_name = safe_test_name[:200]  # Limit length
+                
+                # Build S3 key path
+                s3_key = f"{test_framework_repo_name}/{catomatic_cycle}/{catomatic_run_id}/{suite_name}/{safe_test_name}_{catomatic_timestamp}.json"
+                
+                try:
+                    # Upload file to S3
+                    s3_client.upload_file(
+                        str(file_path),
+                        bucket,
+                        s3_key,
+                        ExtraArgs={'ContentType': 'application/json'}
+                    )
+                    
+                    if self.verbose:
+                        print(f"{Colors.CYAN}  Uploaded: s3://{bucket}/{s3_key}{Colors.NC}")
+                    uploaded_count += 1
+                except Exception as e:
+                    print(f"{Colors.RED}  Failed to upload {file_path.name}: {str(e)}{Colors.NC}")
+                    failed_count += 1
+            
+            if uploaded_count > 0:
+                print(f"\n{Colors.GREEN}✓ Uploaded {uploaded_count} file(s) to S3 bucket '{bucket}'{Colors.NC}")
+            if failed_count > 0:
+                print(f"{Colors.RED}✗ Failed to upload {failed_count} file(s){Colors.NC}")
+                
+        except NoCredentialsError:
+            print(f"{Colors.RED}Error: AWS credentials not found. Please configure AWS credentials.{Colors.NC}")
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            print(f"{Colors.RED}Error uploading to S3 ({error_code}): {str(e)}{Colors.NC}")
+        except Exception as e:
+            print(f"{Colors.RED}Error uploading to S3: {str(e)}{Colors.NC}")
     
     def print_overall_summary(self):
         """Print overall test summary"""
@@ -782,9 +993,14 @@ Examples:
   %(prog)s --stop-on-fail
   %(prog)s -x -v
 
+  # Export test results to individual JSON files (one per test)
+  %(prog)s --json-output test_results/
+  %(prog)s -j ./results --external-test-report-link https://example.com/report
+
   # Combine options
   %(prog)s --dir ../other-branch/tests --skip-validation --verbose
   %(prog)s -d ~/cato-cli/tests -o accountSnapshot -x
+  %(prog)s -j test_results/ -v
         """
     )
     
@@ -829,6 +1045,72 @@ Examples:
         action='store_true',
         help='Stop on first failure'
     )
+    parser.add_argument(
+        '--json-output', '-j',
+        type=str,
+        help='Export test results to individual JSON files (path to output directory or file)',
+        metavar='PATH'
+    )
+    parser.add_argument(
+        '--external-test-report-link',
+        type=str,
+        help='External test report link to include in JSON output',
+        metavar='URL'
+    )
+    parser.add_argument(
+        '--s3-upload',
+        action='store_true',
+        help='Upload test results to S3'
+    )
+    parser.add_argument(
+        '--s3-region',
+        type=str,
+        default='eu-central-1',
+        help='AWS S3 region (default: eu-central-1)',
+        metavar='REGION'
+    )
+    parser.add_argument(
+        '--s3-bucket',
+        type=str,
+        default='external-test-results',
+        help='AWS S3 bucket name (default: external-test-results)',
+        metavar='BUCKET'
+    )
+    parser.add_argument(
+        '--s3-test-framework-repo-name',
+        type=str,
+        help='Test framework repository name for S3 path',
+        metavar='NAME'
+    )
+    parser.add_argument(
+        '--s3-catomatic-cycle',
+        type=str,
+        help='Catomatic cycle name for S3 path',
+        metavar='CYCLE'
+    )
+    parser.add_argument(
+        '--s3-catomatic-run-id',
+        type=str,
+        help='Catomatic run ID for S3 path',
+        metavar='ID'
+    )
+    parser.add_argument(
+        '--s3-catomatic-suite-name',
+        type=str,
+        help='Catomatic suite name for S3 path (default: auto-detect from test type)',
+        metavar='NAME'
+    )
+    parser.add_argument(
+        '--s3-catomatic-timestamp',
+        type=str,
+        help='Catomatic timestamp in milliseconds (default: current timestamp)',
+        metavar='TIMESTAMP'
+    )
+    parser.add_argument(
+        '--s3-verify-ssl',
+        action='store_true',
+        help='Enable SSL certificate verification for S3 upload (disabled by default)'
+    )
     
     args = parser.parse_args()
     
@@ -852,9 +1134,30 @@ Examples:
         print("Error: All test suites are skipped. Nothing to run.")
         sys.exit(1)
     
+    # Build S3 config if S3 upload is enabled
+    s3_config = None
+    if args.s3_upload:
+        if not args.s3_test_framework_repo_name or not args.s3_catomatic_cycle or not args.s3_catomatic_run_id:
+            print(f"{Colors.RED}Error: S3 upload requires --s3-test-framework-repo-name, --s3-catomatic-cycle, and --s3-catomatic-run-id{Colors.NC}")
+            sys.exit(1)
+        
+        s3_config = {
+            'region': args.s3_region,
+            'bucket': args.s3_bucket,
+            'testFrameworkRepoName': args.s3_test_framework_repo_name,
+            'catomaticCycle': args.s3_catomatic_cycle,
+            'catomaticRunId': args.s3_catomatic_run_id,
+            'catomaticSuiteName': args.s3_catomatic_suite_name or '',
+            'catomaticTimestamp': args.s3_catomatic_timestamp or ''
+        }
+    
     runner = AllTestsRunner(
         verbose=args.verbose,
-        stop_on_fail=args.stop_on_fail
+        stop_on_fail=args.stop_on_fail,
+        json_output=args.json_output,
+        external_test_report_link=args.external_test_report_link,
+        s3_config=s3_config,
+        s3_verify_ssl=args.s3_verify_ssl
     )
     
     runner.run_all_suites(
