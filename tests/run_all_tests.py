@@ -28,6 +28,10 @@ from typing import Dict, Optional
 
 from test_utils import (
     Colors,
+    TestStatus,
+    DictKeys,
+    SuiteName,
+    Defaults,
     load_test_settings,
     load_test_payloads_tests,
     load_custom_tests,
@@ -144,44 +148,44 @@ class AllTestsRunner:
             # Check if test is marked as ignored
             if test_config.get('ignored', False):
                 suite_ignored += 1
-                print(f"{Colors.YELLOW}⊘ {test_config.get('name', operation)} (ignored){Colors.NC}")
+                print(f"{Colors.YELLOW}⊘ {test_config.get(DictKeys.NAME, operation)} (ignored){Colors.NC}")
                 continue
             
             result = run_test_from_config(operation, test_config, self.verbose, "Generated Test", enable_trace_id)
             
             # Store result for JSON export with suite name
             if self.json_output:
-                result['suite_name'] = 'generated'  # Track suite name
+                result[DictKeys.SUITE_NAME] = SuiteName.GENERATED  # Track suite name
                 self.test_results.append(result)
             
-            status = result['status']
-            if status == 'passed':
+            status = result[DictKeys.STATUS]
+            if status == TestStatus.PASSED:
                 suite_passed += 1
-                print(f"{Colors.GREEN}✓ {test_config.get('name', operation)}{Colors.NC}")
-            elif status == 'failed':
+                print(f"{Colors.GREEN}✓ {test_config.get(DictKeys.NAME, operation)}{Colors.NC}")
+            elif status == TestStatus.FAILED:
                 suite_failed += 1
-                print(f"{Colors.RED}✗ {test_config.get('name', operation)}{Colors.NC}")
-                if result.get('command'):
-                    print(f"{Colors.YELLOW}Command: \n{result['command']}{Colors.NC}")
-                if result.get('error'):
-                    print(f"{Colors.RED}    Error: {result['error']}{Colors.NC}")
-                if result.get('trace_id'):
-                    print(f"{Colors.CYAN}    Trace ID: {result['trace_id']}{Colors.NC}")
-                if result.get('failures'):
-                    for failure in result['failures']:
+                print(f"{Colors.RED}✗ {test_config.get(DictKeys.NAME, operation)}{Colors.NC}")
+                if result.get(DictKeys.COMMAND):
+                    print(f"{Colors.YELLOW}Command: \n{result[DictKeys.COMMAND]}{Colors.NC}")
+                if result.get(DictKeys.ERROR):
+                    print(f"{Colors.RED}    Error: {result[DictKeys.ERROR]}{Colors.NC}")
+                if result.get(DictKeys.TRACE_ID):
+                    print(f"{Colors.CYAN}    Trace ID: {result[DictKeys.TRACE_ID]}{Colors.NC}")
+                if result.get(DictKeys.FAILURES):
+                    for failure in result[DictKeys.FAILURES]:
                         print(f"{Colors.RED}    {failure}{Colors.NC}")
                 if self.stop_on_fail:
                     print(f"{Colors.YELLOW}\nStopping on first failure (--stop-on-fail){Colors.NC}")
                     break
             else:  # error
                 suite_failed += 1
-                print(f"{Colors.RED}✗ {test_config.get('name', operation)} (error){Colors.NC}")
-                if result.get('command'):
-                    print(f"{Colors.YELLOW}Command: \n{result['command']}{Colors.NC}")
-                if result.get('error'):
-                    print(f"{Colors.RED}    {result['error']}{Colors.NC}")
-                if result.get('trace_id'):
-                    print(f"{Colors.CYAN}    Trace ID: {result['trace_id']}{Colors.NC}")
+                print(f"{Colors.RED}✗ {test_config.get(DictKeys.NAME, operation)} (error){Colors.NC}")
+                if result.get(DictKeys.COMMAND):
+                    print(f"{Colors.YELLOW}Command: \n{result[DictKeys.COMMAND]}{Colors.NC}")
+                if result.get(DictKeys.ERROR):
+                    print(f"{Colors.RED}    {result[DictKeys.ERROR]}{Colors.NC}")
+                if result.get(DictKeys.TRACE_ID):
+                    print(f"{Colors.CYAN}    Trace ID: {result[DictKeys.TRACE_ID]}{Colors.NC}")
         
         # Print suite summary
         print(f"\n{Colors.BOLD}Generated Tests Summary:{Colors.NC}")
@@ -214,7 +218,7 @@ class AllTestsRunner:
         filtered_custom = {}
         for test_key, test_config in custom_tests_dict.items():
             if test_filter:
-                test_name = test_config.get('name', '')
+                test_name = test_config.get(DictKeys.NAME, '')
                 if test_filter.lower() not in test_name.lower():
                     continue
             
@@ -234,44 +238,44 @@ class AllTestsRunner:
             # Check if test is marked as ignored
             if test_config.get('ignored', False):
                 suite_ignored += 1
-                print(f"{Colors.YELLOW}⊘ {test_config.get('name', test_key)} (ignored){Colors.NC}")
+                print(f"{Colors.YELLOW}⊘ {test_config.get(DictKeys.NAME, test_key)} (ignored){Colors.NC}")
                 continue
             
             result = run_test_from_config(test_key, test_config, self.verbose, "Custom Test", enable_trace_id)
             
             # Store result for JSON export with suite name
             if self.json_output:
-                result['suite_name'] = 'custom'  # Track suite name
+                result[DictKeys.SUITE_NAME] = SuiteName.CUSTOM  # Track suite name
                 self.test_results.append(result)
             
-            status = result['status']
-            if status == 'passed':
+            status = result[DictKeys.STATUS]
+            if status == TestStatus.PASSED:
                 suite_passed += 1
-                print(f"{Colors.GREEN}✓ {test_config.get('name', test_key)}{Colors.NC}")
-            elif status == 'failed':
+                print(f"{Colors.GREEN}✓ {test_config.get(DictKeys.NAME, test_key)}{Colors.NC}")
+            elif status == TestStatus.FAILED:
                 suite_failed += 1
-                print(f"{Colors.RED}✗ {test_config.get('name', test_key)}{Colors.NC}")
-                if result.get('command'):
-                    print(f"{Colors.YELLOW}    Command: \n{result['command']}{Colors.NC}")
-                if result.get('error'):
-                    print(f"{Colors.RED}    Error: {result['error']}{Colors.NC}")
-                if result.get('trace_id'):
-                    print(f"{Colors.CYAN}    Trace ID: {result['trace_id']}{Colors.NC}")
-                if result.get('failures'):
-                    for failure in result['failures']:
+                print(f"{Colors.RED}✗ {test_config.get(DictKeys.NAME, test_key)}{Colors.NC}")
+                if result.get(DictKeys.COMMAND):
+                    print(f"{Colors.YELLOW}    Command: \n{result[DictKeys.COMMAND]}{Colors.NC}")
+                if result.get(DictKeys.ERROR):
+                    print(f"{Colors.RED}    Error: {result[DictKeys.ERROR]}{Colors.NC}")
+                if result.get(DictKeys.TRACE_ID):
+                    print(f"{Colors.CYAN}    Trace ID: {result[DictKeys.TRACE_ID]}{Colors.NC}")
+                if result.get(DictKeys.FAILURES):
+                    for failure in result[DictKeys.FAILURES]:
                         print(f"{Colors.RED}    {failure}{Colors.NC}")
                 if self.stop_on_fail:
                     print(f"{Colors.YELLOW}\nStopping on first failure (--stop-on-fail){Colors.NC}")
                     break
             else:  # error
                 suite_failed += 1
-                print(f"{Colors.RED}✗ {test_config.get('name', test_key)} (error){Colors.NC}")
-                if result.get('command'):
-                    print(f"{Colors.YELLOW}    Command: \n{result['command']}{Colors.NC}")
-                if result.get('error'):
-                    print(f"{Colors.RED}    {result['error']}{Colors.NC}")
-                if result.get('trace_id'):
-                    print(f"{Colors.CYAN}    Trace ID: {result['trace_id']}{Colors.NC}")
+                print(f"{Colors.RED}✗ {test_config.get(DictKeys.NAME, test_key)} (error){Colors.NC}")
+                if result.get(DictKeys.COMMAND):
+                    print(f"{Colors.YELLOW}    Command: \n{result[DictKeys.COMMAND]}{Colors.NC}")
+                if result.get(DictKeys.ERROR):
+                    print(f"{Colors.RED}    {result[DictKeys.ERROR]}{Colors.NC}")
+                if result.get(DictKeys.TRACE_ID):
+                    print(f"{Colors.CYAN}    Trace ID: {result[DictKeys.TRACE_ID]}{Colors.NC}")
         
         # Print suite summary
         print(f"\n{Colors.BOLD}Custom Tests Summary:{Colors.NC}")
@@ -373,7 +377,7 @@ class AllTestsRunner:
                 )
                 
                 # Generate safe filename from test name
-                test_name = test_result.get('name', 'unknown_test')
+                test_name = test_result.get(DictKeys.NAME, Defaults.UNKNOWN)
                 # Replace invalid filename characters
                 safe_name = re.sub(r'[<>:"/\\|?*]', '_', test_name)
                 safe_name = re.sub(r'\s+', '_', safe_name)
@@ -395,10 +399,10 @@ class AllTestsRunner:
                     json.dump(json_result, f, indent=2, ensure_ascii=False)
                 
                 # Store mapping for S3 upload
-                suite_name = test_result.get('suite_name', 'unknown')
+                suite_name = test_result.get(DictKeys.SUITE_NAME, SuiteName.UNKNOWN)
                 self.test_file_mapping[str(file_path)] = {
-                    'test_result': test_result,
-                    'suite_name': suite_name
+                    DictKeys.TEST_RESULT: test_result,
+                    DictKeys.SUITE_NAME: suite_name
                 }
                 
                 exported_count += 1
@@ -469,11 +473,11 @@ class AllTestsRunner:
             for file_path_str, mapping in self.test_file_mapping.items():
                 file_path = Path(file_path_str)
                 # Use provided suite name or fall back to detected suite name
-                suite_name = catomatic_suite_name if catomatic_suite_name else mapping['suite_name']
-                test_result = mapping['test_result']
+                suite_name = catomatic_suite_name if catomatic_suite_name else mapping[DictKeys.SUITE_NAME]
+                test_result = mapping[DictKeys.TEST_RESULT]
                 
                 # Get test name from result
-                test_name = test_result.get('name', 'unknown_test')
+                test_name = test_result.get(DictKeys.NAME, Defaults.UNKNOWN)
                 # Sanitize test name for S3 key
                 safe_test_name = re.sub(r'[<>:"/\\|?*]', '_', test_name)
                 safe_test_name = re.sub(r'\s+', '_', safe_test_name)
